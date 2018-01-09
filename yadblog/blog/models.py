@@ -38,7 +38,7 @@ class Comment(models.Model):
     )
 
     class Meta:
-        ordering = ['-timestamp',]
+        ordering = ['timestamp',]
 
     def __str__(self):
         return '{}: {}...'.format(self.name, self.body[:10])

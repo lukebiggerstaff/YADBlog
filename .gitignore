@@ -1,1 +1,4 @@
 blog-env/
+*.py[cod]
+*.sqlite3
+*.swp
