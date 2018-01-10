@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.utils.html import strip_tags
+from django.utils.timezone import now
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormView
-from django.utils.timezone import now
+
+
 
 from .models import Post, Comment
 from .forms import CommentForm
@@ -25,9 +28,9 @@ class PostDetailView(DetailView, FormView):
         form = self.form_class(request.POST)
 
         if form.is_valid():
-            name = form.cleaned_data['name']
+            name = strip_tags(form.cleaned_data['name'])
             email = form.cleaned_data['email']
-            body = form.cleaned_data['body']
+            body = strip_tags(form.cleaned_data['body'])
             post_parent = self.get_object()
             new_comment = Comment(name=name, email=email, body=body, post_parent=post_parent)
             new_comment.save()
@@ -44,9 +47,9 @@ class CommentReplyView(DetailView, FormView):
         form = self.form_class(request.POST)
 
         if form.is_valid():
-            name = form.cleaned_data['name']
+            name = strip_tags(form.cleaned_data['name'])
             email = form.cleaned_data['email']
-            body = form.cleaned_data['body']
+            body = strip_tags(form.cleaned_data['body'])
             comment_parent = self.get_object()
             new_comment = Comment(name=name, email=email, body=body, comment_parent=comment_parent)
             new_comment.save()
