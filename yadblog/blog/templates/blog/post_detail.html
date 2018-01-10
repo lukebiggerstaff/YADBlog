@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load render_post_body_as_template %}
 
 {% block title %}
  post_detail.html 
@@ -9,7 +10,7 @@
  <h4 style="display:inline-block;text-align:center">{{ post.title }}</h4>
  <h4 style="display:inline-block;text-align:center;font-color:gray;font-size:0.8em;">{{ post.published_date }}</h4>
  <br><br>
- {{ post.body|safe}}
+ {{ post.body|render_post_body_as_template }}
 
  <br><br>
  <h2>Comment Form</h2>
@@ -20,6 +21,7 @@
  </form>
 
  <h2>Blog Comments</h3>
+
  {% for comment in post.comment_set.all %}
   <p>{{ comment.name}}</p>
   <p>{{ comment.body}}</p>
