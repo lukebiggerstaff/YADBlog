@@ -23,6 +23,7 @@
  {% for comment in post.comment_set.all %}
   <p>{{ comment.name}}</p>
   <p>{{ comment.body}}</p>
+  <a href=" {% url "comment-reply" post.slug comment.id %}"><button>Reply</button></a>
   {% if comment.comment_set.all != None %}
     {% for child_comment in comment.comment_set.all %}
     <div style="margin-left:30px;">
