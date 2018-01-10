@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+
+<p>{{ comment.name}}</p>
+<p>{{ comment.body}}</p>
+{% if comment.comment_set.all != None %}
+ {% for reply in comment.comment_set.all %}
+    <div style="margin-left:30px;">
+      <p>{{ reply.name}}</p>
+      <p>{{ reply.body}}</p>
+    </div>
+ {% endfor %}
+{% endif %}
+<form action="" method="post">
+  {{ form.as_p }}
+  {% csrf_token %}
+  <button>Submit</button>
+</form>
+  
+{% endblock body %}
