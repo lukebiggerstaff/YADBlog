@@ -2,6 +2,8 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 
+
+
 # Create your models here.
 
 class Post(models.Model):
@@ -42,3 +44,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return '{}: {}...'.format(self.name, self.body[:10])
+
+
+
+class PostImage(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="blog")
+
+    def __str__(self):
+        return self.name
