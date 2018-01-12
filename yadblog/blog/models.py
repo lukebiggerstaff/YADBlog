@@ -46,10 +46,14 @@ class Comment(models.Model):
         return '{}: {}...'.format(self.name, self.body[:10])
 
 
-
 class PostImage(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to="blog")
+    related_post = models.ForeignKey(
+        'Post',
+        on_delete=models.CASCADE,
+        null=True,
+    )
 
     def __str__(self):
         return self.name
