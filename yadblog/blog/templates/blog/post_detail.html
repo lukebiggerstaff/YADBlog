@@ -4,35 +4,47 @@
 {% block title %}
  post_detail.html 
 {% endblock title %}
+
 {% block body %}
- <h2>Blog Post</h2> 
 
- <h4 style="display:inline-block;text-align:center">{{ post.title }}</h4>
- <h4 style="display:inline-block;text-align:center;font-color:gray;font-size:0.8em;">{{ post.published_date }}</h4>
- <br><br>
- {{ post.body|render_post_body_as_template }}
- <br><br>
- <h2>Comment Form</h2>
- <form action="" method="post">
-   {% csrf_token %}
-   {{ form.as_p }}
-   <button>Submit</button>
- </form>
+ <div class="container">
 
- <h2>Blog Comments</h3>
-
- {% for comment in post.comment_set.all %}
-  <p>{{ comment.name}}</p>
-  <p>{{ comment.body}}</p>
-  <a href=" {% url "comment-reply" post.slug comment.id %}"><button>Reply</button></a>
-  {% if comment.comment_set.all != None %}
-    {% for child_comment in comment.comment_set.all %}
-    <div style="margin-left:30px;">
-      <p>{{ child_comment.name}}</p>
-      <p>{{ child_comment.body}}</p>
-    </div>
-    {% endfor %}
-  {% endif %}
- {% endfor %}
+   <div class="row">
+     <div class="col-md-8 m-auto">
+       <div class="row">
+        <div class="col-lg-10 m-auto">
+          <h1 class="main-heading heading">{{ post.title|title }}</h1> 
+        </div>
+       </div>
+       <img src="{{ post.postimage_set.first.image.url }}" class="mx-auto d-block img-fluid">
+       
+       <br><br>
+       {{ post.body|render_post_body_as_template }}
+       <br><br>
+       <h2>Comment Form</h2>
+       <form action="" method="post">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <button>Submit</button>
+       </form>
+       
+       <h2>Blog Comments</h3>
+       
+       {% for comment in post.comment_set.all %}
+        <p>{{ comment.name}}</p>
+        <p>{{ comment.body}}</p>
+        <a href=" {% url "comment-reply" post.slug comment.id %}"><button>Reply</button></a>
+        {% if comment.comment_set.all != None %}
+          {% for child_comment in comment.comment_set.all %}
+          <div style="margin-left:30px;">
+            <p>{{ child_comment.name}}</p>
+            <p>{{ child_comment.body}}</p>
+          </div>
+          {% endfor %}
+        {% endif %}
+       {% endfor %}
+     </div>
+   </div>
+ </div>
 
 {% endblock body %}
