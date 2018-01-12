@@ -1,0 +1,52 @@
+/* background color*/
+$body-bg-color: darken(white, 2%);
+/* heading colors */
+$heading-color: lighten(black, 20%);
+/* body color*/
+$body-text-color: lighten(black, 25%);
+/* code block colors */
+$code-block-bg: lighten(#777, 40%); 
+$code-text-color: black;
+
+body{
+  background: $body-bg-color;
+}
+p {
+  color: $body-text-color;
+  font-size: 1.1em;
+  line-height: 1.6em;
+  word-spacing: 4px;
+  font-family: 'PT Serif', 'Noto Serif', 'Droid Serif', 'Georgia', serif;
+  margin-bottom:20px;
+}
+.heading{
+  letter-spacing: .01em;
+  font-weight:bold;
+  font-family: 'PT Serif', 'Noto Serif', 'Droid Serif', 'Georgia', serif;
+  color: $heading-color;
+}
+.main-heading {
+  padding:20px 0;
+  margin-top: 20px;
+  font-size: 3.4em;
+  text-shadow: rgba(0,0,0,.8);
+}
+.sub-heading {
+  padding: 10px;
+}
+
+.code {
+  background: $code-block-bg;
+  font-family: Menlo,Monaco,"Courier New",Courier,monospace;
+  font-weight: bold;
+  color: $code-text-color;
+}
+
+.code-block {
+  padding: 20px;
+}
+
+.code-inline {
+  padding: 3px 8px;
+
+}

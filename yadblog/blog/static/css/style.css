@@ -1,0 +1,41 @@
+/* background color*/
+/* heading colors */
+/* body color*/
+/* code block colors */
+body {
+  background: #fafafa; }
+
+p {
+  color: #404040;
+  font-size: 1.1em;
+  line-height: 1.6em;
+  word-spacing: 4px;
+  font-family: 'PT Serif', 'Noto Serif', 'Droid Serif', 'Georgia', serif;
+  margin-bottom: 20px; }
+
+.heading {
+  letter-spacing: .01em;
+  font-weight: bold;
+  font-family: 'PT Serif', 'Noto Serif', 'Droid Serif', 'Georgia', serif;
+  color: #333333; }
+
+.main-heading {
+  padding: 20px 0;
+  margin-top: 20px;
+  font-size: 3.4em;
+  text-shadow: rgba(0, 0, 0, 0.8); }
+
+.sub-heading {
+  padding: 10px; }
+
+.code {
+  background: #dddddd;
+  font-family: Menlo,Monaco,"Courier New",Courier,monospace;
+  font-weight: bold;
+  color: black; }
+
+.code-block {
+  padding: 20px; }
+
+.code-inline {
+  padding: 3px 8px; }
