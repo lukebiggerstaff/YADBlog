@@ -1,0 +1,26 @@
+{
+  "name": "yadblog",
+  "version": "1.0.0",
+  "description": "Yet Another Django Blog",
+  "main": "python manage.py runserver",
+  "scripts": {
+    "scss": "node-sass --output yadblog/blog/static/css yadblog/blog/static/scss",
+    "serve": "browser-sync start -c ./bs-config.js",
+    "watch:css": " onchange ./yadblog/blog/static/scss/*.scss -- npm run scss",
+    "watch:all": "parallelshell  'npm run watch:css' 'npm run serve'"
+  },
+  "author": "Luke",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "4.0.0-beta",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.9"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.21.0",
+    "node-sass": "^4.7.2",
+    "onchange": "^3.3.0",
+    "parallelshell": "^3.0.2"
+  }
+}
