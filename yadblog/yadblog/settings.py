@@ -25,7 +25,7 @@ SECRET_KEY = 'e91$!w%4%5+p*9+=tq9j&#6*#6ov8%fr=x^+=^uc1v2h(co00n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -122,7 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 # Media URL and root
-BLOG_DIR = os.path.join(BASE_DIR, 'blog')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BLOG_DIR, 'media')
+PROJECT_DIR = os.path.join(BASE_DIR, 'yadblog')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
