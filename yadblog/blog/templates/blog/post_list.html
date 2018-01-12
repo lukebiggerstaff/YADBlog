@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "./base.html" %}
 {% block title %}
   post_list.html
 {% endblock title %}
@@ -8,8 +8,8 @@
  {% for post in posts %}
  <h4 style="display:inline-block;text-align:center"><a href=" {% url "post-detail" post.slug %}">{{ post.title }}</a></h4>
  <h4 style="display:inline-block;text-align:center;font-color:gray;font-size:0.8em;">{{ post.published_date }}</h4>
- <p>{{ post.slug }}</p>
  <br><br>
  {% endfor %}
+<p>Sit porro illum alias nesciunt accusamus sit eum quia? Esse cum unde at tempora sunt eligendi! Nobis inventore cumque accusantium obcaecati debitis! Repudiandae nobis fuga placeat et asperiores ea debitis totam blanditiis similique provident similique ipsum sequi necessitatibus.</p>
 
 {% endblock body %}
