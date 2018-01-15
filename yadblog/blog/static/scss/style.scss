@@ -10,8 +10,9 @@ $code-text-color: black;
 /* comment border */
 $comment-border-color: lighten(#777, 40%);
 /* */
-$footer-bg-color: lighten(black, 20%);
+$footer-bg-color: lighten(black, 25%);
 $footer-text-color: darken(white, 2%);
+$footer-icon-bg-color: lighten(#008080, 10%);
 
 body{
   background: $body-bg-color;
@@ -87,6 +88,10 @@ body{
   color: $footer-text-color;
   margin-top: 20px;
   padding: 60px;
+  .fa {
+    font-size: 1.8em;
+    color: $footer-icon-bg-color;
+  }
 }
 .btn-subscribe {
   border-radius-left: 0 5px, 0 5px;
