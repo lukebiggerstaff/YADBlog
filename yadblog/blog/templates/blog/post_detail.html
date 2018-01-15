@@ -1,5 +1,5 @@
 {% extends "./base.html" %}
-{% load render_post_body_as_template %}
+{% load custom_blog_filters %}
 
 {% block title %}
  post_detail.html 
@@ -10,6 +10,7 @@
  <div class="container">
 
    <div class="row">
+
      <div class="col-md-8 m-auto">
        <div class="row">
         <div class="col-lg-10 m-auto">
@@ -21,29 +22,61 @@
        <br><br>
        {{ post.body|render_post_body_as_template }}
        <br><br>
-       <h2>Comment Form</h2>
-       <form action="" method="post">
-         {% csrf_token %}
-         {{ form.as_p }}
-         <button>Submit</button>
-       </form>
+
        
-       <h2>Blog Comments</h3>
-       
+       <h3 class="heading">Comments</h3>  
        {% for comment in post.comment_set.all %}
-        <p>{{ comment.name}}</p>
-        <p>{{ comment.body}}</p>
-        <a href=" {% url "comment-reply" post.slug comment.id %}"><button>Reply</button></a>
-        {% if comment.comment_set.all != None %}
-          {% for child_comment in comment.comment_set.all %}
-          <div style="margin-left:30px;">
-            <p>{{ child_comment.name}}</p>
-            <p>{{ child_comment.body}}</p>
+          <div class="parent-comment">
+            <h4 class="comment-name">{{ comment.name}}</h4>
+            <p class="comment-message">{{ comment.body}}</p>
+            <a href=" {% url "comment-reply" post.slug comment.id %}">
+              <button class="btn btn-outline-primary btn-comment">
+                Reply
+              </button>
+            </a>
+            {% if comment.comment_set.all != None %}
+              {% for child_comment in comment.comment_set.all %}
+                <div class="child-comment">
+                  <h4 class="comment-name">{{ child_comment.name}}</h4>
+                  <p class="comment-message">{{ child_comment.body}}</p>
+                  <a href=" {% url "comment-reply" post.slug comment.id %}">
+                    <button class="btn btn-outline-primary btn-comment">
+                      Reply
+                    </button>
+                  </a>
+                </div>
+            {% endfor %}
+            {% endif %}
           </div>
-          {% endfor %}
-        {% endif %}
        {% endfor %}
+
+
+       <form action="" method="post" class="mt-5">
+         {% csrf_token %}
+         {{ form.non_field_errors }}
+          <div class="form-group">
+           {{ form.body.errors }}
+           {{ form.body }}
+          </div>
+         <div class="row">
+           <div class="col-md-6">
+             <div class="form-group">
+               {{ form.name.errors }}
+               {{ form.name }}
+               </div>
+           </div>
+            <div class="col-md-6">
+              <div class="form-group">
+               {{ form.email.errors }}
+               {{ form.email }}
+              </div>
+            </div>
+         </div>
+         <button class="btn btn-block btn-outline-primary">Submit</button>
+       </form>
+
      </div>
+
    </div>
  </div>
 
