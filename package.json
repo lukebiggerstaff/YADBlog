@@ -6,7 +6,8 @@
   "scripts": {
     "scss": "node-sass --output yadblog/blog/static/css yadblog/blog/static/scss",
     "serve": "browser-sync start -c ./bs-config.js",
-    "watch:css": " onchange ./yadblog/blog/static/scss/*.scss -- npm run scss",
+    "bscss": " rm -v ./yadblog/blog/static/css/bootstrap.css && node-sass --output ./yadblog/blog/static/css/bootstrap.css ./node_modules/bootstrap/scss/bootstrap.scss",
+    "watch:css": " onchange ./yadblog/blog/static/scss/*.scss ./node_modules/bootstrap/scss/bootstrap.scss -- npm run scss",
     "watch:all": "parallelshell  'npm run watch:css' 'npm run serve'"
   },
   "author": "Luke",
