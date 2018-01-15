@@ -2,6 +2,8 @@
 /* heading colors */
 /* body color*/
 /* code block colors */
+/* comment border */
+/* */
 body {
   background: #fafafa; }
 
@@ -67,3 +69,12 @@ body {
   padding: 10px 30px;
   letter-spacing: .1px;
   cursor: pointer; }
+
+#footer {
+  background: #333333;
+  color: #fafafa;
+  margin-top: 20px;
+  padding: 60px; }
+
+.btn-subscribe {
+  border-radius-left: 0 5px, 0 5px; }
