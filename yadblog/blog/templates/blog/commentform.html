@@ -1,0 +1,23 @@
+<form action="" method="post" class="mt-5">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  <div class="form-group">
+    {{ form.body.errors }}
+    {{ form.body }}
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        {{ form.name.errors }}
+        {{ form.name }}
+        </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        {{ form.email.errors }}
+        {{ form.email }}
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-block btn-outline-primary">Submit</button>
+</form>
