@@ -71,10 +71,13 @@ body {
   cursor: pointer; }
 
 #footer {
-  background: #333333;
+  background: #404040;
   color: #fafafa;
   margin-top: 20px;
   padding: 60px; }
+  #footer .fa {
+    font-size: 1.8em;
+    color: #00b3b3; }
 
 .btn-subscribe {
   border-radius-left: 0 5px, 0 5px; }
