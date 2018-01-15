@@ -32,7 +32,12 @@ class PostDetailView(DetailView, FormView):
             email = form.cleaned_data['email']
             body = strip_tags(form.cleaned_data['body'])
             post_parent = self.get_object()
-            new_comment = Comment(name=name, email=email, body=body, post_parent=post_parent)
+            new_comment = Comment(
+                name=name,
+                email=email,
+                body=body,
+                post_parent=post_parent
+            )
             new_comment.save()
             slug = post_parent.slug
             return HttpResponseRedirect(reverse('post-detail',
@@ -51,7 +56,12 @@ class CommentReplyView(DetailView, FormView):
             email = form.cleaned_data['email']
             body = strip_tags(form.cleaned_data['body'])
             comment_parent = self.get_object()
-            new_comment = Comment(name=name, email=email, body=body, comment_parent=comment_parent)
+            new_comment = Comment(
+                name=name,
+                email=email,
+                body=body,
+                comment_parent=comment_parent,
+            )
             new_comment.save()
             post_parent = comment_parent.post_parent
             slug = post_parent.slug
