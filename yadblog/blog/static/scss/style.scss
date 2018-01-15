@@ -1,5 +1,10 @@
+/* primary theme colors*/
+$primary-theme-color: #00b3b3;
+/* navigation */
+$nav-bg-color: lighten(black, 25%);
+$hamburger-min-breakpoint: 700px;
 /* background color*/
-$body-bg-color: darken(white, 2%);
+$body-bg-color: darken(white, 3%);
 /* heading colors */
 $heading-color: lighten(black, 20%);
 /* body color*/
@@ -9,14 +14,62 @@ $code-block-bg: lighten(#777, 40%);
 $code-text-color: black;
 /* comment border */
 $comment-border-color: lighten(#777, 40%);
-/* */
+/* footer styles */
 $footer-bg-color: lighten(black, 25%);
 $footer-text-color: darken(white, 2%);
-$footer-icon-bg-color: lighten(#008080, 10%);
+$footer-icon-bg-color: $primary-theme-color;
 
+::selection{
+  background: $primary-theme-color;
+}
 body{
   background: $body-bg-color;
 }
+.hamburger {
+  background: $nav-bg-color;
+  opacity: .8;
+  position: fixed;
+  right: .25em;
+  top: .25em;
+  z-index: 30;
+  cursor: pointer;
+  .fa {
+    font-size: 1.5em;
+    @media (min-width: $hamburger-min-breakpoint){
+      font-size: 3em;
+    }
+    color: $primary-theme-color;
+    padding: .5em;
+  }
+}
+
+.navigation-items {
+  background: $nav-bg-color;
+  opacity: .8;
+  width: 100%;
+  height:100px;
+  position: fixed;
+  transition: bottom 0.5s ease-in-out;
+  bottom:-90px;
+  display: flex;
+  justify-content:space-around;
+  z-index: 30;
+  .navigation-item-icon {
+    border-top: 10px solid $primary-theme-color;
+    flex-grow:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .fa {
+    font-size: 4em;
+  }
+}
+.onscreen {
+  transition: bottom 0.5s ease-in-out;
+  bottom: 0;
+}
+
 .body-paragraph {
   color: $body-text-color;
   font-size: 1.1em;
@@ -84,6 +137,7 @@ body{
   cursor: pointer;
 }
 #footer {
+  border-top: 5px solid $primary-theme-color;
   background: $footer-bg-color;
   color: $footer-text-color;
   margin-top: 20px;
