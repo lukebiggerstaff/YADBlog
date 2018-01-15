@@ -1,21 +1,27 @@
 {% extends "./base.html" %}
 {% block body %}
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 m-auto">
 
-<p>{{ comment.name}}</p>
-<p>{{ comment.body}}</p>
-{% if comment.comment_set.all != None %}
- {% for reply in comment.comment_set.all %}
-    <div style="margin-left:30px;">
-      <p>{{ reply.name}}</p>
-      <p>{{ reply.body}}</p>
+      <div class="parent-comment">
+        <h4 class="comment-name">{{ comment.name}}</h4>
+        <p class="comment-message">{{ comment.body}}</p>
+        {% if comment.comment_set.all != None %}
+          {% for reply in comment.comment_set.all %}
+            <div class="child-comment">
+              <p class="comment-name">{{ reply.name}}</p>
+              <p class="comment-message">{{ reply.body}}</p>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      
+      {% include "./commentform.html" %}
+
     </div>
- {% endfor %}
-{% endif %}
-<form action="" method="post">
-  {{ form.as_p }}
-  {% csrf_token %}
-  <button>Submit</button>
-</form>
+  </div>
+</div>
   
 {% endblock body %}
