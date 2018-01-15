@@ -5,7 +5,7 @@
 body {
   background: #fafafa; }
 
-p {
+.body-paragraph {
   color: #404040;
   font-size: 1.1em;
   line-height: 1.6em;
@@ -39,3 +39,31 @@ p {
 
 .code-inline {
   padding: 3px 8px; }
+
+.comment-counter {
+  color: red; }
+
+.parent-comment {
+  border-bottom: 1px solid #dddddd;
+  padding: 10px; }
+
+.child-comment {
+  margin-left: 3em;
+  padding: 10px; }
+
+.comment-name {
+  padding: 10px;
+  font-weight: bold; }
+
+.comment-message {
+  padding: 10px;
+  color: #404040; }
+
+.btn {
+  font-family: Monospace; }
+
+.btn-comment {
+  font-size: 1em;
+  padding: 10px 30px;
+  letter-spacing: .1px;
+  cursor: pointer; }

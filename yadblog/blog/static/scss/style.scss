@@ -7,11 +7,12 @@ $body-text-color: lighten(black, 25%);
 /* code block colors */
 $code-block-bg: lighten(#777, 40%); 
 $code-text-color: black;
+$comment-border-color: lighten(#777, 40%);
 
 body{
   background: $body-bg-color;
 }
-p {
+.body-paragraph {
   color: $body-text-color;
   font-size: 1.1em;
   line-height: 1.6em;
@@ -48,5 +49,32 @@ p {
 
 .code-inline {
   padding: 3px 8px;
-
 }
+.comment-counter {
+  color: red;
+}
+.parent-comment {
+  border-bottom: 1px solid $comment-border-color;
+  padding: 10px;
+}
+.child-comment {
+  margin-left: 3em;
+  padding: 10px;
+}
+.comment-name {
+  padding:10px;
+  font-weight: bold;
+}
+.comment-message {
+  padding:10px;
+  color: $body-text-color;
+}
+.btn {
+  font-family: Monospace;
+}
+.btn-comment{
+  font-size: 1em;
+  padding: 10px 30px ;
+  letter-spacing: .1px ;
+  cursor: pointer;
+ }
