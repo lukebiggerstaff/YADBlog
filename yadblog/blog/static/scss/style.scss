@@ -7,7 +7,11 @@ $body-text-color: lighten(black, 25%);
 /* code block colors */
 $code-block-bg: lighten(#777, 40%); 
 $code-text-color: black;
+/* comment border */
 $comment-border-color: lighten(#777, 40%);
+/* */
+$footer-bg-color: lighten(black, 20%);
+$footer-text-color: darken(white, 2%);
 
 body{
   background: $body-bg-color;
@@ -77,4 +81,13 @@ body{
   padding: 10px 30px ;
   letter-spacing: .1px ;
   cursor: pointer;
- }
+}
+#footer {
+  background: $footer-bg-color;
+  color: $footer-text-color;
+  margin-top: 20px;
+  padding: 60px;
+}
+.btn-subscribe {
+  border-radius-left: 0 5px, 0 5px;
+}
