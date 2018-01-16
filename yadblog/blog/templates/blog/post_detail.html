@@ -12,16 +12,28 @@
    <div class="row">
 
      <div class="col-md-8 m-auto">
-       <div class="row">
-        <div class="col-lg-10 m-auto">
-          <h1 class="main-heading heading">{{ post.title|title }}</h1> 
-        </div>
-       </div>
+      <h1 class="main-heading heading text-center">{{ post.title|title }}</h1> 
        <img src="{{ post.postimage_set.first.image.url }}" class="mx-auto d-block img-fluid">
        
        <br><br>
        {{ post.body|render_post_body_as_template }}
        <br><br>
+       <div class="share-bar">
+         <ul class="share-list">
+           <li class="share-list-item">
+             <i class="fa fa-facebook"></i>
+             <p>Share</p>
+           </li>
+           <li class="share-list-item">
+             <i class="fa fa-twitter"></i>
+             <p>Share</p>
+           </li>
+           <li class="share-list-item">
+             <i class="fa fa-linkedin"></i>
+             <p>Share</p>
+           </li>
+         </ul>
+       </div>
 
        
        <h3 class="heading">Comments</h3>  
