@@ -30,14 +30,14 @@ $footer-min-breakpoint: 400px;
 body{
   background: $body-bg-color;
 }
-.hamburger {
+
+%nav_icon {
   background: $nav-bg-color;
   opacity: .8;
-  position: fixed;
-  right: .25em;
-  top: .25em;
   z-index: 30;
   cursor: pointer;
+  position: fixed;
+  top: .25em;
   .fa {
     font-size: 1.5em;
     @media (min-width: $hamburger-min-breakpoint){
@@ -46,6 +46,14 @@ body{
     color: $primary-theme-color;
     padding: .5em;
   }
+}
+.hamburger {
+  @extend %nav_icon;
+  right: .25em;
+}
+.back-arrow {
+  @extend %nav_icon;
+  left: .25em;
 }
 
 .navigation-items {
@@ -90,7 +98,7 @@ body{
 }
 .main-heading {
   padding:20px 0;
-  margin-top: 20px;
+  margin-top: 40px;
   font-size: 3.4em;
   text-shadow: rgba(0,0,0,.8);
 }
@@ -122,7 +130,6 @@ body{
       display: flex;
       justify-content: space-between;
     }
-
 
     .share-list-item {
       background: $share-bg-color;

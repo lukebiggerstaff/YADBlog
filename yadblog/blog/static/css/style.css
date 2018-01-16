@@ -13,21 +13,26 @@
 body {
   background: #f7f7f7; }
 
-.hamburger {
+.hamburger, .back-arrow {
   background: #404040;
   opacity: .8;
-  position: fixed;
-  right: .25em;
-  top: .25em;
   z-index: 30;
-  cursor: pointer; }
-  .hamburger .fa {
+  cursor: pointer;
+  position: fixed;
+  top: .25em; }
+  .hamburger .fa, .back-arrow .fa {
     font-size: 1.5em;
     color: #00b3b3;
     padding: .5em; }
     @media (min-width: 700px) {
-      .hamburger .fa {
+      .hamburger .fa, .back-arrow .fa {
         font-size: 3em; } }
+
+.hamburger {
+  right: .25em; }
+
+.back-arrow {
+  left: .25em; }
 
 .navigation-items {
   background: #404040;
@@ -69,7 +74,7 @@ body {
 
 .main-heading {
   padding: 20px 0;
-  margin-top: 20px;
+  margin-top: 40px;
   font-size: 3.4em;
   text-shadow: rgba(0, 0, 0, 0.8); }
 
