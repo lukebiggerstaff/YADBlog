@@ -38,6 +38,10 @@ body{
   cursor: pointer;
   position: fixed;
   top: .25em;
+  &:hover {
+    background: darken($nav-bg-color, 20%);
+    transition: background .7s ease;
+  }
   .fa {
     font-size: 1.5em;
     @media (min-width: $hamburger-min-breakpoint){
@@ -73,6 +77,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    &:hover {
+      background: darken($nav-bg-color, 20%);
+      transition: background .7s ease;
+    }
   }
   .fa {
     font-size: 4em;
