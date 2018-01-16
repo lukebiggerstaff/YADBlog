@@ -1,18 +1,28 @@
-<nav class="hamburger">
-  <div id="navMenuButton" class="nav-item-icon">
-    <i class="fa fa-bars"></i>
-  </div>
-</nav>
+{% if request.resolver_match.view_name != 'post-list' %}
+  <nav class="hamburger">
+    <div id="navMenuButton" class="nav-item-icon">
+      <i class="fa fa-bars"></i>
+    </div>
+  </nav>
 
-<div id="navMenuSlider" class="navigation-items">
-    <div class="navigation-item-icon">
-      <a href="">
+  <nav class="back-arrow">
+    <a href="{% url 'post-list' %}">
+      <div class="nav-item-icon">
+        <i class="fa fa-arrow-left"></i>
+      </div>
+    </a>
+  </nav>
+
+  <div id="navMenuSlider" class="navigation-items">
+    <a href="{% url 'about-me' %}" class="navigation-item-icon">
+      <div>
         <i class="fa fa-user"></i>
-      </a>
-    </div>
-    <div class="navigation-item-icon">
-      <a href="/">
+      </div>
+    </a>
+    <a href="{% url 'post-list' %}" class="navigation-item-icon">
+      <div>
         <i class="fa fa-home"></i>
-      </a>
-    </div>
-</div>
+      </div>
+    </a>
+  </div>
+{% endif %}
