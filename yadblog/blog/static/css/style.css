@@ -107,24 +107,30 @@ body {
     .share-bar .share-list {
       display: flex;
       justify-content: space-between; } }
-  .share-bar .share-list .share-list-item {
+  .share-bar .share-list .share-list-link {
     background: #404040;
     height: 3em;
     padding: 15px;
     color: white;
     margin-top: 10px;
+    text-decoration: none;
     display: flex;
-    align-items: center;
     justify-content: center; }
+    .share-bar .share-list .share-list-link:hover {
+      background: #0d0d0d;
+      transition: background .7s ease-in-out; }
     @media (min-width: 500px) {
-      .share-bar .share-list .share-list-item {
+      .share-bar .share-list .share-list-link {
         flex-grow: 1; } }
-    .share-bar .share-list .share-list-item .fa {
-      color: #00b3b3;
-      font-size: 2em;
-      margin-right: 15px; }
-    .share-bar .share-list .share-list-item p {
-      align-self: flex-start; }
+    .share-bar .share-list .share-list-link .share-list-item {
+      display: flex;
+      align-items: center; }
+      .share-bar .share-list .share-list-link .share-list-item .fa {
+        color: #00b3b3;
+        font-size: 2em;
+        margin-right: 15px; }
+      .share-bar .share-list .share-list-link .share-list-item p {
+        align-self: flex-start; }
 
 .parent-comment {
   border-bottom: 1px solid #dddddd;

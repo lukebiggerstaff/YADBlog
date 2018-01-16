@@ -139,26 +139,34 @@ body{
       justify-content: space-between;
     }
 
-    .share-list-item {
+    .share-list-link,{
       background: $share-bg-color;
       height: 3em;
       padding: 15px;
       color: white;
       margin-top: 10px;
-
+      text-decoration: none;
       display: flex;
-      align-items: center;
-      justify-content: center;
-        @media (min-width: 500px){
-          flex-grow: 1;
-        }
-      .fa {
-        color: $primary-theme-color;
-        font-size: 2em;
-        margin-right: 15px;
+      justify-content:center;
+      &:hover {
+        background: darken($share-bg-color, 20%);
+        transition: background .7s ease-in-out;
       }
-      p {
-        align-self: flex-start;
+      @media (min-width: 500px){
+        flex-grow: 1;
+      }
+
+      .share-list-item {
+        display:flex;
+        align-items: center;
+        .fa {
+          color: $primary-theme-color;
+          font-size: 2em;
+          margin-right: 15px;
+        }
+        p {
+          align-self: flex-start;
+        }
       }
     }
   }
