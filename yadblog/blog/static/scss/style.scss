@@ -55,10 +55,6 @@ body{
   @extend %nav_icon;
   right: .25em;
 }
-.back-arrow {
-  @extend %nav_icon;
-  left: .25em;
-}
 
 .navigation-items {
   background: $nav-bg-color;

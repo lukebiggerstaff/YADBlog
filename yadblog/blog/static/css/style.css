@@ -13,29 +13,26 @@
 body {
   background: #f7f7f7; }
 
-.hamburger, .back-arrow {
+.hamburger {
   background: #404040;
   opacity: .8;
   z-index: 30;
   cursor: pointer;
   position: fixed;
   top: .25em; }
-  .hamburger:hover, .back-arrow:hover {
+  .hamburger:hover {
     background: #0d0d0d;
     transition: background .7s ease; }
-  .hamburger .fa, .back-arrow .fa {
+  .hamburger .fa {
     font-size: 1.5em;
     color: #00b3b3;
     padding: .5em; }
     @media (min-width: 700px) {
-      .hamburger .fa, .back-arrow .fa {
+      .hamburger .fa {
         font-size: 3em; } }
 
 .hamburger {
   right: .25em; }
-
-.back-arrow {
-  left: .25em; }
 
 .navigation-items {
   background: #404040;

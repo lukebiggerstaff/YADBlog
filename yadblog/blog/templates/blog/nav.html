@@ -5,16 +5,8 @@
     </div>
   </nav>
 
-  <nav class="back-arrow">
-    <a href="{% url 'post-list' %}">
-      <div class="nav-item-icon">
-        <i class="fa fa-arrow-left"></i>
-      </div>
-    </a>
-  </nav>
-
   <div id="navMenuSlider" class="navigation-items">
-    <a href="{% url 'about-me' %}" class="navigation-item-icon">
+    <a href="{% url 'post-detail' 'about-the-author' %}" class="navigation-item-icon">
       <div>
         <i class="fa fa-user"></i>
       </div>
