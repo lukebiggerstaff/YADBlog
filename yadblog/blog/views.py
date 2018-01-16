@@ -71,3 +71,6 @@ class CommentReplyView(DetailView, FormView):
 
 def about_me(request):
     return HttpResponse('about me')
+
+def contact_me(request):
+    return HttpResponse('contact me')
