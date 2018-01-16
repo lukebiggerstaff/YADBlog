@@ -6,8 +6,6 @@ from django.utils.timezone import now
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormView
 
-
-
 from .models import Post, Comment
 from .forms import CommentForm
 
