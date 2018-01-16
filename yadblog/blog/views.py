@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.utils.html import strip_tags
 from django.utils.timezone import now
@@ -69,3 +69,5 @@ class CommentReplyView(DetailView, FormView):
                                                 kwargs={'slug' : slug}))
 
 
+def about_me(request):
+    return HttpResponse('about me')
