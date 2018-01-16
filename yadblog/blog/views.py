@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils.html import strip_tags
 from django.utils.timezone import now
@@ -7,7 +7,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormView
 
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, ContactForm
 
 # Create your views here.
 
@@ -66,9 +66,6 @@ class CommentReplyView(DetailView, FormView):
             return HttpResponseRedirect(reverse('post-detail',
                                                 kwargs={'slug' : slug}))
 
-
-def about_me(request):
-    return HttpResponse('about me')
-
-def contact_me(request):
-    return HttpResponse('contact me')
+class ContactFormView(FormView):
+    form_class = ContactForm
+    template_name = "blog/contact_me.html"

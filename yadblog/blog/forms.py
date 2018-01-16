@@ -20,3 +20,9 @@ class CommentForm(forms.ModelForm):
                 'class' : 'form-control text-muted',
             }),
         }
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    subject = forms.CharField(max_length=250)
+    message = forms.CharField()
