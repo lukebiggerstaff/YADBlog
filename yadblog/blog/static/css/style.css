@@ -4,6 +4,7 @@
 /* heading colors */
 /* body color*/
 /* code block colors */
+/* share bar styles */
 /* comment border */
 /* footer styles */
 ::selection {
@@ -87,8 +88,32 @@ body {
 .code-inline {
   padding: 3px 8px; }
 
-.comment-counter {
-  color: red; }
+/* code for share bar */
+.share-bar .share-list {
+  list-style-type: none;
+  padding-left: 0; }
+  @media (min-width: 400px) {
+    .share-bar .share-list {
+      display: flex;
+      justify-content: space-between; } }
+  .share-bar .share-list .share-list-item {
+    background: #404040;
+    height: 3em;
+    padding: 15px;
+    color: white;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    @media (min-width: 500px) {
+      .share-bar .share-list .share-list-item {
+        flex-grow: 1; } }
+    .share-bar .share-list .share-list-item .fa {
+      color: #00b3b3;
+      font-size: 2em;
+      margin-right: 15px; }
+    .share-bar .share-list .share-list-item p {
+      align-self: flex-start; }
 
 .parent-comment {
   border-bottom: 1px solid #dddddd;
@@ -120,10 +145,17 @@ body {
   background: #404040;
   color: #fafafa;
   margin-top: 20px;
-  padding: 60px; }
+  padding: 60px 10px; }
   #footer .fa {
     font-size: 1.8em;
     color: #00b3b3; }
-
-.btn-subscribe {
-  border-radius-left: 0 5px, 0 5px; }
+  #footer .btn-subscribe {
+    border-radius-left: 0 5px, 0 5px;
+    background: #dc3545;
+    color: white; }
+  @media (max-width: 400px) {
+    #footer .footer-form {
+      display: none; } }
+  #footer .copyright {
+    padding: 30px 0px;
+    margin-bottom: 20px; }

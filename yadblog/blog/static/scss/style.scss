@@ -12,12 +12,17 @@ $body-text-color: lighten(black, 25%);
 /* code block colors */
 $code-block-bg: lighten(#777, 40%); 
 $code-text-color: black;
+/* share bar styles */
+$share-bg-color: $nav-bg-color;
+$share-icon-color: $primary-theme-color;
 /* comment border */
 $comment-border-color: lighten(#777, 40%);
 /* footer styles */
 $footer-bg-color: lighten(black, 25%);
 $footer-text-color: darken(white, 2%);
 $footer-icon-bg-color: $primary-theme-color;
+$footer-subscribe-btn-color: #dc3545;
+$footer-min-breakpoint: 400px;
 
 ::selection{
   background: $primary-theme-color;
@@ -69,7 +74,6 @@ body{
   transition: bottom 0.5s ease-in-out;
   bottom: 0;
 }
-
 .body-paragraph {
   color: $body-text-color;
   font-size: 1.1em;
@@ -93,7 +97,6 @@ body{
 .sub-heading {
   padding: 10px;
 }
-
 .code {
   background: $code-block-bg;
   font-family: Menlo,Monaco,"Courier New",Courier,monospace;
@@ -108,9 +111,44 @@ body{
 .code-inline {
   padding: 3px 8px;
 }
-.comment-counter {
-  color: red;
+/* code for share bar */
+.share-bar {
+
+  .share-list {
+    list-style-type: none;
+    padding-left: 0;
+
+    @media (min-width: 400px){
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+    .share-list-item {
+      background: $share-bg-color;
+      height: 3em;
+      padding: 15px;
+      color: white;
+      margin-top: 10px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+        @media (min-width: 500px){
+          flex-grow: 1;
+        }
+      .fa {
+        color: $primary-theme-color;
+        font-size: 2em;
+        margin-right: 15px;
+      }
+      p {
+        align-self: flex-start;
+      }
+    }
+  }
 }
+
 .parent-comment {
   border-bottom: 1px solid $comment-border-color;
   padding: 10px;
@@ -141,12 +179,23 @@ body{
   background: $footer-bg-color;
   color: $footer-text-color;
   margin-top: 20px;
-  padding: 60px;
+  padding: 60px 10px;
   .fa {
     font-size: 1.8em;
     color: $footer-icon-bg-color;
   }
-}
 .btn-subscribe {
   border-radius-left: 0 5px, 0 5px;
+  background: $footer-subscribe-btn-color;
+  color: white;
+  }
+  .footer-form {
+    @media (max-width: $footer-min-breakpoint){
+      display:none
+    }
+  }
+  .copyright {
+    padding: 30px 0px;
+    margin-bottom: 20px;
+  }
 }
