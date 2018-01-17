@@ -1,25 +1,23 @@
-{% if request.resolver_match.view_name != 'post-list' %}
-  <nav class="hamburger">
-    <div id="navMenuButton" class="nav-item-icon">
-      <i class="fa fa-bars"></i>
-    </div>
-  </nav>
-
-  <div id="navMenuSlider" class="navigation-items">
-    <a href="{% url 'post-detail' 'about-the-author' %}" class="navigation-item-icon">
-      <div>
-        <i class="fa fa-user"></i>
-      </div>
-    </a>
-    <a href="{% url 'post-list' %}" class="navigation-item-icon">
-      <div>
-        <i class="fa fa-home"></i>
-      </div>
-    </a>
-    <a href="{% url 'contact-me' %}" class="navigation-item-icon">
-      <div>
-        <i class="fa fa-envelope"></i>
-      </div>
-    </a>
+<nav class="hamburger">
+  <div id="navMenuButton" class="nav-item-icon">
+    <i class="fa fa-bars"></i>
   </div>
-{% endif %}
+</nav>
+
+<div id="navMenuSlider" class="navigation-items">
+  <a href="{% url 'post-detail' 'about-the-author' %}" class="navigation-item-icon">
+    <div>
+      <i class="fa fa-user"></i>
+    </div>
+  </a>
+  <a href="{% url 'post-list' %}" class="navigation-item-icon">
+    <div>
+      <i class="fa fa-home"></i>
+    </div>
+  </a>
+  <a href="{% url 'contact-me' %}" class="navigation-item-icon">
+    <div>
+      <i class="fa fa-envelope"></i>
+    </div>
+  </a>
+</div>
