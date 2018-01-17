@@ -10,6 +10,7 @@ class Post(models.Model):
     title = models.CharField(max_length=256)
     body = models.TextField()
     published_date = models.DateTimeField(default=timezone.now)
+    description = models.TextField(blank=True)
     slug = models.SlugField()
 
     class Meta:
@@ -50,6 +51,19 @@ class PostImage(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to="blog")
     related_post = models.ForeignKey(
+        'Post',
+        on_delete=models.CASCADE,
+        null=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+
+class PostThumbnailImage(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="blog")
+    related_post = models.OneToOneField(
         'Post',
         on_delete=models.CASCADE,
         null=True,
