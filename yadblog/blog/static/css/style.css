@@ -61,6 +61,25 @@ body {
   transition: bottom 0.5s ease-in-out;
   bottom: 0; }
 
+.header {
+  background: #00b3b3;
+  height: 300px; }
+
+.post-card {
+  background: #f7f7f7;
+  margin: 50px 0; }
+  .post-card h2 {
+    margin: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+  .post-card .card-title {
+    padding: 10px;
+    margin: 0; }
+  .post-card .card-body {
+    padding-top: 5px; }
+
+.quote {
+  color: #777; }
+
 .body-paragraph {
   color: #404040;
   font-size: 1.1em;
@@ -107,7 +126,6 @@ body {
   .share-bar .share-list .share-list-link {
     background: #404040;
     height: 3em;
-    padding: 15px;
     color: white;
     margin-top: 10px;
     text-decoration: none;
@@ -127,15 +145,17 @@ body {
         font-size: 2em;
         margin-right: 15px; }
       .share-bar .share-list .share-list-link .share-list-item p {
-        align-self: flex-start; }
+        margin: 0 !important; }
 
 .parent-comment {
   border-bottom: 1px solid #dddddd;
   padding: 10px; }
 
 .child-comment {
+  margin-top: 1em;
   margin-left: 3em;
-  padding: 10px; }
+  padding: 10px;
+  border-top: 1px solid #dddddd; }
 
 .comment-name {
   padding: 10px;
@@ -156,9 +176,9 @@ body {
 
 #footer {
   border-top: 5px solid #00b3b3;
+  margin-top: 40px;
   background: #404040;
   color: #fafafa;
-  margin-top: 20px;
   padding: 60px 10px; }
   #footer .fa {
     font-size: 1.8em;
@@ -167,9 +187,6 @@ body {
     border-radius-left: 0 5px, 0 5px;
     background: #dc3545;
     color: white; }
-  @media (max-width: 400px) {
-    #footer .footer-form {
-      display: none; } }
   #footer .copyright {
     padding: 30px 0px;
     margin-bottom: 20px; }
