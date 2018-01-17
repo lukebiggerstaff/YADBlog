@@ -1,16 +1,35 @@
 {% extends "./base.html" %}
 
 {% block title %}
-  post_list.html
+  Luke Biggerstaff
 {% endblock title %}
 
 {% block body %}
- <h2>Blog Posts</h2> 
 
- {% for post in posts %}
- <h4 style="display:inline-block;text-align:center"><a href=" {% url "post-detail" post.slug %}">{{ post.title }}</a></h4>
- <h4 style="display:inline-block;text-align:center;font-color:gray;font-size:0.8em;">{{ post.published_date }}</h4>
- <br><br>
- {% endfor %}
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8 m-auto">
+      <h1 class="heading main-heading">Luke Biggerstaff</h1>
+      <i class="fa fa-quote-left quote"></i>
+      <cite class="text-muted">A rennaissaince man</cite>
+      <i class="fa fa-quote-right quote"></i>
+      {% for post in posts %}
+      <div class="card post-card">
+        <div class="card-title">
+          <a href="{% url 'post-detail' post.slug  %}">
+            <h2 class="heading sub-heading">{{ post.title|title }}</h2>
+          </a>
+        </div>
+        <div class="card-body">
+          <p class="body-paragraph">Adipisicing assumenda beatae incidunt sunt nihil nemo. Iusto inventore sed iusto at quia laborum vel perspiciatis doloremque magni odio id. Perspiciatis illo cupiditate explicabo labore officiis fugit ea esse consectetur? Explicabo adipisci dolore culpa numquam quis laborum dolor consequatur. Porro illum accusamus blanditiis optio odit velit. Voluptates debitis tenetur inventore.</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
 
 {% endblock body %}
