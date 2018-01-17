@@ -10,12 +10,13 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-md-8 m-auto">
+    <div class="col-md-10 col-lg-8 m-auto">
       <h1 class="heading main-heading">Luke Biggerstaff</h1>
       <i class="fa fa-quote-left quote"></i>
       <cite class="text-muted">A rennaissaince man</cite>
       <i class="fa fa-quote-right quote"></i>
       {% for post in posts %}
+
       <div class="card post-card">
         <div class="card-title">
           <a href="{% url 'post-detail' post.slug  %}">
@@ -23,9 +24,20 @@
           </a>
         </div>
         <div class="card-body">
-          <p class="body-paragraph">Adipisicing assumenda beatae incidunt sunt nihil nemo. Iusto inventore sed iusto at quia laborum vel perspiciatis doloremque magni odio id. Perspiciatis illo cupiditate explicabo labore officiis fugit ea esse consectetur? Explicabo adipisci dolore culpa numquam quis laborum dolor consequatur. Porro illum accusamus blanditiis optio odit velit. Voluptates debitis tenetur inventore.</p>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <img src="{{ post.postthumbnailimage.image.url }}" class="img-fluid">
+              </div>
+              <div class="col-sm-9">
+                <p class="body-paragraph">{{ post.description }}</p>
+                <a href="{% url 'post-detail' post.slug %}" class="small">Read Post <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
       {% endfor %}
     </div>
   </div>
