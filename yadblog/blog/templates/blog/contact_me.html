@@ -1,0 +1,46 @@
+{% extends "./base.html" %}
+
+{% block title %}
+Contact Me  
+{% endblock title %}
+
+{% block body %}
+
+<h3 class="heading main-heading text-center">Contact me!</h3>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8 m-auto">
+      <form method="post">
+        {{ form.non_field_errors }}
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              {{ form.name.errors }}
+              {{ form.name }}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              {{ form.email.errors }}
+              {{ form.email }}
+            </div>
+          </div>
+          </div>
+          <div class="form-group">
+            {{ form.subject.errors }}
+            {{ form.subject }}
+          </div>
+          <div class="form-group">
+            {{ form.message.errors }}
+            {{ form.message }}
+          </div>
+        {% csrf_token %}
+        <button class="btn btn-block btn-primary btn-lg">Send</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+  
+{% endblock body %}
