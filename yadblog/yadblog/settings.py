@@ -127,3 +127,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 PROJECT_DIR = os.path.join(BASE_DIR, 'yadblog')
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+
+# EMAIL DEBUG SETTINGS
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ADMIN_EMAIL_ADDRESS = 'test2@test.com'
