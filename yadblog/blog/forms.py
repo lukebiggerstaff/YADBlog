@@ -22,7 +22,26 @@ class CommentForm(forms.ModelForm):
         }
 
 class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    subject = forms.CharField(max_length=250)
-    message = forms.CharField()
+    name = forms.CharField(widget=forms.TextInput(attrs={
+            'placeholder': 'Name',
+            'class' : 'form-control text-muted',
+        }),
+    )
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={
+            'placeholder': 'Email',
+            'class' : 'form-control text-muted',
+        }),
+    )
+    subject = forms.CharField(max_length=250,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Subject',
+            'class' : 'form-control text-muted',
+                        })
+                    )
+    message = forms.CharField(
+        widget=forms.Textarea(attrs={
+            'placeholder': 'Message Here...',
+            'class' : 'form-control text-muted',
+        }),
+    )
