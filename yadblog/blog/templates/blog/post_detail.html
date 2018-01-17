@@ -41,8 +41,8 @@
          </ul>
        </div>
 
-       
        <h3 class="heading">Comments</h3>  
+       <hr class="comments-border">
        {% for comment in post.comment_set.all %}
           <div class="parent-comment">
             <h4 class="comment-name">{{ comment.name}}</h4>
