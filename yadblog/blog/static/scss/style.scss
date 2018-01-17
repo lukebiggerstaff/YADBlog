@@ -96,11 +96,16 @@ body{
   h2{
     margin: 0;
     border-bottom:  1px solid rgba(0, 0, 0, 0.125);
+    color: $primary-theme-color !important;
   }
   margin: 50px 0;
+
   .card-title {
     padding: 10px;
     margin: 0;
+    a {
+    text-decoration:none;
+    }
   }
   .card-body {
     padding-top: 5px;
@@ -127,7 +132,11 @@ body{
 .main-heading {
   padding:20px 0;
   margin-top: 40px;
-  font-size: 3.4em;
+  font-size: 2.5em;
+  @media (min-width: 400px){
+    font-size: 3.4em;
+  }
+
   text-shadow: rgba(0,0,0,.8);
 }
 .sub-heading {

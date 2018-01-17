@@ -70,10 +70,13 @@ body {
   margin: 50px 0; }
   .post-card h2 {
     margin: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    color: #00b3b3 !important; }
   .post-card .card-title {
     padding: 10px;
     margin: 0; }
+    .post-card .card-title a {
+      text-decoration: none; }
   .post-card .card-body {
     padding-top: 5px; }
 
@@ -97,8 +100,11 @@ body {
 .main-heading {
   padding: 20px 0;
   margin-top: 40px;
-  font-size: 3.4em;
+  font-size: 2.5em;
   text-shadow: rgba(0, 0, 0, 0.8); }
+  @media (min-width: 400px) {
+    .main-heading {
+      font-size: 3.4em; } }
 
 .sub-heading {
   padding: 10px; }
