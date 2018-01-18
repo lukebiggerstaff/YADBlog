@@ -8,7 +8,7 @@
 /* comment border */
 /* footer styles */
 ::selection {
-  background: #00b3b3; }
+  background: #00cdcd; }
 
 body {
   background: #f7f7f7; }
@@ -70,8 +70,7 @@ body {
   margin: 50px 0; }
   .post-card h2 {
     margin: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-    color: #00b3b3 !important; }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
   .post-card .card-title {
     padding: 10px;
     margin: 0; }
@@ -131,6 +130,7 @@ body {
       justify-content: space-between; } }
   .share-bar .share-list .share-list-link {
     background: #404040;
+    padding: 0 20px;
     height: 3em;
     color: white;
     margin-top: 10px;
@@ -140,7 +140,7 @@ body {
     .share-bar .share-list .share-list-link:hover {
       background: #0d0d0d;
       transition: background .7s ease-in-out; }
-    @media (min-width: 500px) {
+    @media (min-width: 525px) {
       .share-bar .share-list .share-list-link {
         flex-grow: 1; } }
     .share-bar .share-list .share-list-link .share-list-item {
