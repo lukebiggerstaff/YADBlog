@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
+    'debug_toolbar',
     'blog',
 ]
 
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'yadblog.urls'
@@ -131,3 +133,16 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 # EMAIL DEBUG SETTINGS
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ADMIN_EMAIL_ADDRESS = 'test2@test.com'
+
+#django debug
+INTERNAL_IPS = ['127.0.0.1']
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'loggers': {
+        'django.db.backends': {
+            'level' : 'DEBUG',
+        }
+    }
+}
