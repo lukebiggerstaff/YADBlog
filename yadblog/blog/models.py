@@ -1,3 +1,4 @@
+from django import template
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
@@ -13,8 +14,13 @@ class Post(models.Model):
     description = models.TextField(blank=True)
     slug = models.SlugField()
 
+    @property
+    def body_template(self):
+        return template.Template(self.body)
+
     class Meta:
         ordering = ['-published_date',]
+
 
     def __str__(self):
         return '{}'.format(self.title)
