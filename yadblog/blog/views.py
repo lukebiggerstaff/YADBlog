@@ -1,3 +1,5 @@
+import ipdb
+
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -17,7 +19,7 @@ ADMIN_EMAIL_ADDRESS = settings.ADMIN_EMAIL_ADDRESS
 
 
 class PostListView(ListView):
-    queryset = Post.objects.filter(published_date__lte=now())
+    queryset = Post.objects.select_related('postthumbnailimage').filter(published_date__lte=now())
     context_object_name = 'posts'
 
 
@@ -25,6 +27,8 @@ class PostDetailView(DetailView, FormView):
     model = Post
     context_object_name = 'post'
     form_class = CommentForm
+    queryset = Post.objects.prefetch_related('comment_set').prefetch_related('comment_set')
+
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
