@@ -1,5 +1,6 @@
 /* primary theme colors*/
 $primary-theme-color: #00b3b3;
+$secondary-theme-color: lighten(#00b3b3, 5%);
 /* navigation */
 $nav-bg-color: lighten(black, 25%);
 $hamburger-min-breakpoint: 700px;
@@ -25,7 +26,7 @@ $footer-subscribe-btn-color: #dc3545;
 $footer-min-breakpoint: 400px;
 
 ::selection{
-  background: $primary-theme-color;
+  background: $secondary-theme-color;
 }
 body{
   background: $body-bg-color;
@@ -96,7 +97,6 @@ body{
   h2{
     margin: 0;
     border-bottom:  1px solid rgba(0, 0, 0, 0.125);
-    color: $primary-theme-color !important;
   }
   margin: 50px 0;
 
@@ -170,6 +170,7 @@ body{
 
     .share-list-link,{
       background: $share-bg-color;
+      padding: 0 20px;
       height: 3em;
       color: white;
       margin-top: 10px;
@@ -180,7 +181,7 @@ body{
         background: darken($share-bg-color, 20%);
         transition: background .7s ease-in-out;
       }
-      @media (min-width: 500px){
+      @media (min-width: 525px){
         flex-grow: 1;
       }
 
