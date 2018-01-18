@@ -19,15 +19,17 @@
 
       <div class="card post-card">
         <div class="card-title">
-          <a href="{% url 'post-detail' post.slug  %}">
-            <h2 class="heading sub-heading">{{ post.title|title }}</h2>
-          </a>
+          <h2 class="heading sub-heading">
+            <a href="{% url 'post-detail' post.slug  %}">
+              {{ post.title|title }}
+            </a>
+          </h2>
         </div>
         <div class="card-body">
           <div class="container">
             <div class="row">
               <div class="col-sm-3">
-                <img src="{{ post.postthumbnailimage.image.url }}" class="img-fluid">
+                <img src="{{ post.postthumbnailimage.image.url }}" class="img-fluid img-thumbnail">
               </div>
               <div class="col-sm-9">
                 <p class="body-paragraph">{{ post.description }}</p>
