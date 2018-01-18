@@ -13,26 +13,29 @@
 
      <div class="col-md-10 col-lg-8 m-auto">
       <h1 class="main-heading heading text-center">{{ post.title|title }}</h1> 
-       <img src="{{ post.postimage_set.first.image.url }}" class="mx-auto d-block img-fluid">
        
        <br><br>
-       {{ post.body|render_post_body_as_template }}
+       {% include post.body_template %}
        <br><br>
+
        <div class="share-bar">
          <ul class="share-list">
-           <a href="" class="share-list-link">
+           <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri|urlencode }}"
+             class="share-list-link" target="_blank">
              <li class="share-list-item">
                <i class="fa fa-facebook"></i>
                <p>Share</p>
              </li>
            </a>
-           <a href="" class="share-list-link">
+           <a href="https://twitter.com/share?url={{ request.build_absolute_uri|urlencode }}"
+             class="share-list-link" target="_blank">
              <li class="share-list-item">
                <i class="fa fa-twitter"></i>
                <p>Share</p>
              </li>
            </a>
-           <a href="" class="share-list-link">
+           <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri|urlencode }}"
+             class="share-list-link" target="_blank">
              <li class="share-list-item">
                <i class="fa fa-linkedin"></i>
                <p>Share</p>
