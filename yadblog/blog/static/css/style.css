@@ -153,6 +153,11 @@ body {
       .share-bar .share-list .share-list-link .share-list-item p {
         margin: 0 !important; }
 
+.fa-comment-o {
+  margin-left: auto;
+  color: #5e5e5e;
+  margin-right: 20px; }
+
 .parent-comment {
   border-bottom: 1px solid #dddddd;
   padding: 10px; }

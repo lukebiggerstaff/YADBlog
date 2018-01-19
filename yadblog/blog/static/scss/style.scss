@@ -201,6 +201,12 @@ body{
   }
 }
 
+.fa-comment-o {
+  margin-left: auto;
+  color: darken(#777, 10%);
+  margin-right: 20px;
+}
+
 .parent-comment {
   border-bottom: 1px solid $comment-border-color;
   padding: 10px;
