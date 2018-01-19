@@ -12,21 +12,22 @@ class Post(models.Model):
     body = models.TextField()
     published_date = models.DateTimeField(default=timezone.now)
     description = models.TextField(blank=True)
+    num_comments = models.IntegerField()
     slug = models.SlugField()
 
     @property
     def body_template(self):
         return template.Template(self.body)
 
-    class Meta:
-        ordering = ['-published_date',]
-
-
     def __str__(self):
         return '{}'.format(self.title)
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'slug': self.slug})
+
+    class Meta:
+        ordering = ['-published_date',]
+
 
 class Comment(models.Model):
     name = models.CharField(max_length=60)
@@ -46,11 +47,30 @@ class Comment(models.Model):
         blank=True,
     )
 
-    class Meta:
-        ordering = ['timestamp',]
+    def save(self, *args, **kwargs):
+        if self.post_parent:
+            self.post_parent.num_comments += 1
+            self.post_parent.save()
+        else:
+            self.comment_parent.post_parent.num_comments += 1
+            self.comment_parent.post_parent.save()
+        return super(Comment, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        if self.post_parent:
+            self.post_parent.num_comments -= 1
+            self.post_parent.save()
+        else:
+            self.comment_parent.post_parent.num_comments -= 1
+            self.comment_parent.post_parent.save()
+        return super(Comment, self).delete(*args, **kwargs)
 
     def __str__(self):
         return '{}: {}...'.format(self.name, self.body[:10])
+
+
+    class Meta:
+        ordering = ['timestamp',]
 
 
 class PostImage(models.Model):
