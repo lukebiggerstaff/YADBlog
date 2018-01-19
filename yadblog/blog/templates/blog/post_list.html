@@ -33,7 +33,10 @@
               </div>
               <div class="col-sm-9">
                 <p class="body-paragraph">{{ post.description }}</p>
-                <a href="{% url 'post-detail' post.slug %}" class="small">Read Post <i class="fa fa-arrow-circle-right"></i></a>
+                <div class="d-flex">
+                  <a href="{% url 'post-detail' post.slug %}" class="small">Read Post <i class="fa fa-arrow-circle-right"></i></a> 
+                  <i class="fa fa-comment-o flex-end"> {{ post.num_comments }}</i>
+                </div>
               </div>
             </div>
           </div>
