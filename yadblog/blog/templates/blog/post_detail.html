@@ -43,7 +43,7 @@
          </ul>
        </div>
 
-       <h3 class="heading d-flex">Comments <i class="fa fa-comment-o"> {{ post.num_comments }}</i></h3>  
+       <h3 id="comments" class="heading d-flex">Comments <i class="fa fa-comment-o"> {{ post.num_comments }}</i></h3>  
        <hr class="comments-border">
        {% for comment in post.comment_set.all %}
           <div class="parent-comment">
