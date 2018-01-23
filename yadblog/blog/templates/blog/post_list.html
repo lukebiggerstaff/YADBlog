@@ -35,7 +35,9 @@
                 <p class="body-paragraph">{{ post.description }}</p>
                 <div class="d-flex">
                   <a href="{% url 'post-detail' post.slug %}" class="small">Read Post <i class="fa fa-arrow-circle-right"></i></a> 
-                  <i class="fa fa-comment-o flex-end"> {{ post.num_comments }}</i>
+                  <a href="{% url 'post-detail' post.slug %}#comments" class="ml-auto">
+                    <i class="fa fa-comment-o"> {{ post.num_comments }}</i>
+                  </a>
                 </div>
               </div>
             </div>
