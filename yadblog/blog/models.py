@@ -12,7 +12,7 @@ class Post(models.Model):
     body = models.TextField()
     published_date = models.DateTimeField(default=timezone.now)
     description = models.TextField(blank=True)
-    num_comments = models.IntegerField()
+    num_comments = models.IntegerField(default=0)
     slug = models.SlugField()
 
     @property
