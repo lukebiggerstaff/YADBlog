@@ -4,3 +4,4 @@ blog-env/
 *.swp
 node_modules/
 media/
+geckodriver.log
