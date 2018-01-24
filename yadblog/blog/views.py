@@ -1,5 +1,3 @@
-import ipdb
-
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -19,7 +17,9 @@ ADMIN_EMAIL_ADDRESS = settings.ADMIN_EMAIL_ADDRESS
 
 
 class PostListView(ListView):
-    queryset = Post.objects.select_related('postthumbnailimage').filter(published_date__lte=now())
+    queryset = Post.objects.select_related('postthumbnailimage').filter(
+        published_date__lte=now()
+    )
     context_object_name = 'posts'
 
 

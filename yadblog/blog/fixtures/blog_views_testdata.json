@@ -1,0 +1,101 @@
+[
+{
+    "model": "blog.post",
+    "pk": 7,
+    "fields": {
+        "title": "post should be visible 2",
+        "body": "<img src=\"{{ post.postimage_set.all.0.image.url }}\" class=\"img-fluid m-auto d-block\"\r\nalt=\"guy at the gym\">\r\n<h2 class=\"heading sub-heading\">Visible Post!</h2>\r\n<pre class=\"code code-block\">\r\ndef func():\r\n    print(\"Hello World!\")\r\n</pre>\r\n<p class=\"body-paragraph\">This is a <i>good</i> usage of the <span class=\"code code-inline\">func</span> function</p>\r\n<p class=\"body-paragraph\">lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit amet</p>\r\n<p class=\"body-paragraph\">lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem <em>ipsum dolor sit ametlorem ipsum</em> dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor <strong>sit ametlorem ipsum dolor sit</strong> amet</p>\r\n<h2 class=\"heading sub-heading\">Let's take a look at more code...</h2>\r\n\r\n<pre class=\"code code-block\">\r\nimport os, sys\r\n\r\nfrom django.urls import path\r\nfrom mainapp import views\r\n\r\nurlpatterns = [\r\n    <strong>path('', views.index, 'index'),</strong>\r\n]\r\n\r\n</pre>\r\n\r\n<h2 class=\"heading sub-heading\">Ok now time for a list</h2>\r\n<ul>\r\n  <li>Item One</li>\r\n  <li>Item Two</li>\r\n</ul>\r\n\r\n<h2 class=\"heading sub-heading\">And heres an ordered list</h2>\r\n<ol>\r\n  <li>Item One</li>\r\n  <li>Item Two</li>\r\n</ol>\r\n\r\n<h2 class=\"heading sub-heading\">and now a blockquote</h2>",
+        "published_date": "2018-01-05T22:51:46Z",
+        "description": "lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor",
+        "num_comments": 1,
+        "slug": "post-should-be-visible-2"
+    }
+},
+{
+    "model": "blog.post",
+    "pk": 8,
+    "fields": {
+        "title": "post should not be visible",
+        "body": "should not be visible\r\n\r\n<a href=\"{% url 'post-detail' 'post-should-be-visible' %}\">Click</a>\r\n\r\n<br><br>\r\n{% load static %}\r\n<p>{% get_media_prefix %}</p>\r\n<p>{{ MEDIA_URL }}/blog/atthegym.png</p>\r\n<img src=\"{% get_media_prefix %}/blog/atthegym.png\">",
+        "published_date": "2019-01-06T22:53:41Z",
+        "description": "",
+        "num_comments": 1,
+        "slug": "post-should-not-be-visible"
+    }
+},
+{
+    "model": "blog.post",
+    "pk": 9,
+    "fields": {
+        "title": "post should be visible 1",
+        "body": "something, something\r\n\r\nlorem ipsum\r\n\r\nthe end.",
+        "published_date": "2018-01-16T05:23:26Z",
+        "description": "lorem ipsum dolor sit amet. lorem ipsum dolor sit amet. lorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor",
+        "num_comments": 2,
+        "slug": "post-should-be-visible-1"
+    }
+},
+{
+    "model": "blog.comment",
+    "pk": 12674,
+    "fields": {
+        "name": "test user 1",
+        "email": "test@test.com",
+        "body": "test comment parent",
+        "timestamp": "2018-01-23T22:07:32.349Z",
+        "post_parent": 9,
+        "comment_parent": null
+    }
+},
+{
+    "model": "blog.comment",
+    "pk": 12675,
+    "fields": {
+        "name": "test user 2",
+        "email": "test2@test.com",
+        "body": "test comment child",
+        "timestamp": "2018-01-23T22:08:06.782Z",
+        "post_parent": null,
+        "comment_parent": 12674
+    }
+},
+{
+    "model": "blog.comment",
+    "pk": 12676,
+    "fields": {
+        "name": "test user 3",
+        "email": "test3@test.com",
+        "body": "test comment 3 on post-should-be-visible",
+        "timestamp": "2018-01-23T22:08:59.830Z",
+        "post_parent": 7,
+        "comment_parent": null
+    }
+},
+{
+    "model": "blog.postimage",
+    "pk": 2,
+    "fields": {
+        "name": "atthegym-image",
+        "image": "blog/atthegym_YzRTFyI.png",
+        "related_post": 7
+    }
+},
+{
+    "model": "blog.postthumbnailimage",
+    "pk": 1,
+    "fields": {
+        "name": "justme",
+        "image": "blog/crop-profilepic.jpeg",
+        "related_post": 9
+    }
+},
+{
+    "model": "blog.postthumbnailimage",
+    "pk": 2,
+    "fields": {
+        "name": "headshot",
+        "image": "blog/atthegym_XIsZmPW.png",
+        "related_post": 7
+    }
+}
+]

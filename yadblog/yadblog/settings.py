@@ -132,7 +132,7 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 
 # EMAIL DEBUG SETTINGS
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-ADMIN_EMAIL_ADDRESS = 'test2@test.com'
+ADMIN_EMAIL_ADDRESS = 'ADMINPLACEHOLDERVALUE@TEST.COM'
 
 #django debug
 INTERNAL_IPS = ['127.0.0.1']
