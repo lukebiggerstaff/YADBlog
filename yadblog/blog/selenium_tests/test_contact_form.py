@@ -1,9 +1,9 @@
 import time
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
+
+from django.core import mail
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
@@ -29,7 +29,28 @@ class TestContactFormPage(StaticLiveServerTestCase):
 
     def test_contact_form_view_has_form(self):
         self.browser.get(self.live_server_url + '/contact/')
-        time.sleep(4)
+        email_data = {
+            'name' : 'test',
+            'email' : 'test@test.com',
+            'subject' : 'test subject',
+            'message' : 'test message',
+        }
+        name_input = self.browser.find_element_by_id('id_name')
+        name_input.send_keys(email_data['name'])
 
+        email_input = self.browser.find_element_by_id('id_email')
+        email_input.send_keys(email_data['email'])
 
+        subject_input = self.browser.find_element_by_id('id_subject')
+        subject_input.send_keys(email_data['subject'])
 
+        message_input = self.browser.find_element_by_id('id_message')
+        message_input.send_keys(email_data['message'])
+
+        submit_button = self.browser.find_element_by_id('id_button')
+        submit_button.click()
+
+        self.assertTrue(len(mail.outbox) > 0)
+        self.assertEqual(mail.outbox[0].subject, email_data['subject'])
+        self.assertEqual(mail.outbox[0].from_email, email_data['email'])
+        self.assertTrue(email_data['name'] in mail.outbox[0].body)
