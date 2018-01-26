@@ -46,7 +46,7 @@
        <h3 id="comments" class="heading d-flex">Comments <i class="fa fa-comment-o"> {{ post.num_comments }}</i></h3>  
        <hr class="comments-border">
        {% for comment in post.comment_set.all %}
-          <div class="parent-comment">
+          <div id="comment-{{ comment.id }}" class="parent-comment">
             <h4 class="comment-name">{{ comment.name}}</h4>
             <p class="comment-message">{{ comment.body}}</p>
             <a href=" {% url "comment-reply" post.slug comment.id %}">
@@ -56,7 +56,7 @@
             </a>
             {% if comment.comment_set.all != None %}
               {% for child_comment in comment.comment_set.all %}
-                <div class="child-comment">
+                <div  id="comment-{{ child_comment.id }}" class="child-comment">
                   <h4 class="comment-name">{{ child_comment.name}}</h4>
                   <p class="comment-message">{{ child_comment.body}}</p>
                   <a href=" {% url "comment-reply" post.slug comment.id %}">
