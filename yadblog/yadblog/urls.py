@@ -23,10 +23,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
 ]
-
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
-

@@ -5,3 +5,4 @@ blog-env/
 node_modules/
 media/
 geckodriver.log
+blog-env/
