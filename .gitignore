@@ -1,8 +1,7 @@
-blog-env/
 *.py[cod]
 *.sqlite3
 *.swp
 node_modules/
 media/
 geckodriver.log
-blog-env/
+*-env/
