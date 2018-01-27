@@ -5,3 +5,6 @@ node_modules/
 media/
 geckodriver.log
 *-env/
+.env
+/yadblog/static
+/yadblog/media

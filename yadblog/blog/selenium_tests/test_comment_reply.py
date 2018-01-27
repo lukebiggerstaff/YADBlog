@@ -1,20 +1,8 @@
-import time
+from .base import BaseSeleniumTest
 
-from selenium import webdriver
-
-from django.test import LiveServerTestCase
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-
-
-class TestDetailPage(StaticLiveServerTestCase):
+class TestDetailPage(BaseSeleniumTest):
     fixtures = ['blog_views_testdata.json']
     parent_comment_id = 12674
-
-    def setUp(self):
-        self.browser = webdriver.Firefox()
-
-    def tearDown(self):
-        self.browser.quit()
 
 
     def test_comment_reply_page_comment_form_can_submit(self):

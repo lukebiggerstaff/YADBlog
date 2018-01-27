@@ -9,6 +9,17 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
     ALLOWED_HOSTS = ['*']
     ADMIN_EMAIL_ADDRESS = 'ADMINPLACEHOLDERVALUE@TEST.COM'
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get('DJANGO_DB_NAME'),
+            'USER': os.environ.get('DJANGO_USER_NAME'),
+            'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD'),
+            'HOST': os.environ.get('DJANGO_DB_HOST'),
+            'PORT': os.environ.get('DJANGO_DB_PORT'),
+        }
+    }
+
 else:
     DEBUG = True
     SECRET_KEY = 'e91$!w%4%5+p*9+=tq9j&#6*#6ov8%fr=x^+=^uc1v2h(co00n'
@@ -17,6 +28,12 @@ else:
     ADMIN_EMAIL_ADDRESS = 'ADMINPLACEHOLDERVALUE@TEST.COM'
     #django debug setting
     INTERNAL_IPS = ['127.0.0.1']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 # Application definition
 
@@ -62,21 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'yadblog.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
-# Password validation
-# https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -111,9 +113,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Media URL and root
 MEDIA_URL = '/media/'
-PROJECT_DIR = os.path.join(BASE_DIR, 'yadblog')
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

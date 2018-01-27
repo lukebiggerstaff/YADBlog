@@ -1,21 +1,11 @@
-import time
-
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-
+from .base import BaseSeleniumTest
 from django.core import mail
 
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 
-class TestContactFormPage(StaticLiveServerTestCase):
+class TestContactFormPage(BaseSeleniumTest):
     fixtures = ['blog_views_testdata.json']
 
-    def setUp(self):
-        self.browser = webdriver.Firefox()
-
-    def tearDown(self):
-        self.browser.quit()
 
     def test_home_page_menu_button_goes_to_contact_form_page(self):
         self.browser.get(self.live_server_url)

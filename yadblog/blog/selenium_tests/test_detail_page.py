@@ -1,19 +1,9 @@
-import time
-
-from selenium import webdriver
-
-from django.test import LiveServerTestCase
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from .base import BaseSeleniumTest
 
 
-class TestDetailPage(StaticLiveServerTestCase):
+class TestDetailPage(BaseSeleniumTest):
     fixtures = ['blog_views_testdata.json']
 
-    def setUp(self):
-        self.browser = webdriver.Firefox()
-
-    def tearDown(self):
-        self.browser.quit()
 
     def submit_comment(self, reply_data):
         name_input = self.browser.find_element_by_id('id_name')
