@@ -13,7 +13,7 @@ class BaseSeleniumTest(StaticLiveServerTestCase):
         site_url = os.environ.get('SELENIUM_URL')
         if site_url:
             self.live_server_url = site_url
-        print("Tests are running against: {}".format(self.live_server_url))
+            print("Tests are running against: {}".format(self.live_server_url))
 
     def tearDown(self):
         self.browser.quit()
