@@ -1,0 +1,8 @@
+---
+- name: Install & configure Postgresql, Nginx, and Django
+  hosts: target
+  vars_file: "{{ PATH_TO_ENV_VARS }}"
+  roles:
+    - nginx
+    - postgresql
+    - django

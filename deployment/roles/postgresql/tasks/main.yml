@@ -1,0 +1,26 @@
+---
+- name: update cache and install postgresql
+  apt: 
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    - postgresql-9.5
+    - libpq-dev
+    - python-psycopg2
+
+- name: create yadblog database if not already present
+  postgresql_db:
+    name: "{{ DJANGO_DB_NAME }}"
+
+- name: create yadblog user if not already present
+  postgresql_user:
+    db: "{{ DJANGO_DB_NAME }}"
+    name: "{{ DJANGO_DB_USER }}"
+    password: "{{ DJANGO_DB_PASSWORD }}"
+    priv: ALL
+
+- name: ensure postgresql is started and enabled
+  service:
+    name: postgresql
+    enabled: yes
+    state: started
