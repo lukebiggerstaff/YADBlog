@@ -3,39 +3,39 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-if 'DJANGO_DEBUG_FALSE' in os.environ:
-    DEBUG = False
-    SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-    ALLOWED_HOSTS = ['*']
-    ADMIN_EMAIL_ADDRESS = 'ADMINPLACEHOLDERVALUE@TEST.COM'
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get('DJANGO_DB_NAME'),
-            'USER': os.environ.get('DJANGO_USER_NAME'),
-            'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD'),
-            'HOST': os.environ.get('DJANGO_DB_HOST'),
-            'PORT': os.environ.get('DJANGO_DB_PORT'),
-        }
-    }
+Environment = {
+    "DJANGO_DEBUG" : bool(os.environ.get("DJANGO_DEBUG")),
+    "DJANGO_SECRET_KEY": os.environ.get("DJANGO_SECRET_KEY"),
+    "DJANGO_DB_NAME": os.environ.get("DJANGO_DB_NAME"),
+    "DJANGO_DB_USER": os.environ.get("DJANGO_DB_USER"),
+    "DJANGO_DB_PASSWORD": os.environ.get("DJANGO_DB_PASSWORD"),
+    "DJANGO_DB_HOST": os.environ.get("DJANGO_DB_HOST"),
+    "DJANGO_DB_PORT": os.environ.get("DJANGO_DB_PORT"),
+    "DJANGO_SITE_NAME": os.environ.get("DJANGO_SITE_NAME"),
+    "DJANGO_SITE_HOST": os.environ.get("DJANGO_SITE_HOST"),
+    "DJANGO_EMAIL_BACKEND": os.environ.get("DJANGO_EMAIL_BACKEND"),
+    "DJANGO_ADMIN_EMAIL": os.environ.get("DJANGO_ADMIN_EMAIL"),
+}
+for env in Environment.keys():
+    print('env : {}, {}'.format(env, Environment[env]))
 
-else:
-    DEBUG = True
-    SECRET_KEY = 'e91$!w%4%5+p*9+=tq9j&#6*#6ov8%fr=x^+=^uc1v2h(co00n'
-    ALLOWED_HOSTS = ['*']
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    ADMIN_EMAIL_ADDRESS = 'ADMINPLACEHOLDERVALUE@TEST.COM'
-    #django debug setting
-    INTERNAL_IPS = ['127.0.0.1']
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
+DEBUG = Environment["DJANGO_DEBUG"]
+SECRET_KEY = Environment['DJANGO_SECRET_KEY']
+print('secret key : {}'.format(SECRET_KEY))
+ALLOWED_HOSTS = [Environment['DJANGO_SITE_NAME']]
+ADMIN_EMAIL_ADDRESS = Environment["DJANGO_ADMIN_EMAIL"]
+EMAIL_BACKEND = Environment["DJANGO_EMAIL_BACKEND"]
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': Environment["DJANGO_DB_NAME"],
+        'USER': Environment["DJANGO_DB_USER"],
+        'PASSWORD': Environment["DJANGO_DB_PASSWORD"],
+        'HOST': Environment["DJANGO_DB_HOST"],
+        'PORT': Environment["DJANGO_DB_PORT"],
+    },
+}
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
