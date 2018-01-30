@@ -9,10 +9,14 @@
     - python-psycopg2
 
 - name: create yadblog database if not already present
+  become: yes
+  become_user: postgres
   postgresql_db:
     name: "{{ DJANGO_DB_NAME }}"
 
 - name: create yadblog user if not already present
+  become: yes
+  become_user: postgres
   postgresql_user:
     db: "{{ DJANGO_DB_NAME }}"
     name: "{{ DJANGO_DB_USER }}"
