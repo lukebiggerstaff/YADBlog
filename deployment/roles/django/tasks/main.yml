@@ -39,6 +39,18 @@
     app_path: "{{ DJANGO_PROJECT_DIR }}/yadblog"
     virtualenv: "{{ DJANGO_PROJECT_DIR }}/venv"
     command: "{{ item }}"
+  environment:
+    DJANGO_DEBUG: "{{ DJANGO_DEBUG }}"
+    DJANGO_SECRET_KEY: "{{ DJANGO_SECRET_KEY }}"
+    DJANGO_DB_NAME: "{{ DJANGO_DB_NAME }}"
+    DJANGO_DB_USER: "{{ DJANGO_DB_USER }}"
+    DJANGO_DB_PASSWORD: "{{ DJANGO_DB_PASSWORD }}"
+    DJANGO_DB_HOST: "{{ DJANGO_DB_HOST }}"
+    DJANGO_DB_PORT: "{{ DJANGO_DB_PORT }}"
+    DJANGO_SITE_NAME: "{{ DJANGO_SITE_NAME }}"
+    DJANGO_EMAIL_BACKEND: "{{ DJANGO_EMAIL_BACKEND }}"
+    DJANGO_ADMIN_EMAIL: "{{ DJANGO_ADMIN_EMAIL }}"
+    DJANGO_PROJECT_DIR: "{{ DJANGO_PROJECT_DIR }}"
   with_items:
     - "migrate"
     - "collectstatic"
@@ -59,5 +71,5 @@
 - name: Start and enable gunicorn
   service:
     name: gunicorn-{{ DJANGO_SITE_NAME }}.service
-    state: started
+    state: restarted
     enabled: yes
