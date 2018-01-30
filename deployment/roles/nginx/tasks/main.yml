@@ -1,2 +1,24 @@
 ---
-# tasks file for nginx
+- name: Install nginx
+  apt:
+    name: nginx
+    update_cache: yes
+    cache_valid_time: 3600
+    state: present
+
+- name: Copy template to sites-available dir
+  template:
+    src: ../templates/nginx.conf.j2
+    dest: /etc/nginx/sites-available/yadblog.conf
+
+- name: Create symlink from sits-available to sites-enabled
+  file:
+    src: /etc/nginx/sites-available/yadblog.conf
+    dest: /etc/nginx/sites-enabled/yadblog.conf
+    state: link
+
+- name: Reload nginx
+  service:
+    name: nginx
+    state: reloaded
+    enabled: yes

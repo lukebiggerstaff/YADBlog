@@ -1,0 +1,17 @@
+server {
+    listen 80;
+    server_name {{ DJANGO_SITE_NAME }};
+
+    location / {
+        proxy_pass http://localhost:8000;
+        proxy_set_header Host $host;
+    }
+
+    location /static {
+        alias {{ DJANGO_PROJECT_DIR }}{{ DJANGO_STATIC_ROOT }};
+    }
+
+    location /media {
+        alias {{ DJANGO_PROJECT_DIR }}{{ DJANGO_MEDIA_ROOT }};
+    }
+}
