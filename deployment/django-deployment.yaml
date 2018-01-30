@@ -1,8 +1,19 @@
 ---
-- name: Install & configure Postgresql, Nginx, and Django
+- name: Install and configure Postgresql, Nginx, and Django
   hosts: target
-  vars_file: "{{ PATH_TO_ENV_VARS }}"
   roles:
     - nginx
     - postgresql
     - django
+  environment:
+    DJANGO_DEBUG: "{{ DJANGO_DEBUG }}"
+    DJANGO_SECRET_KEY: "{{ DJANGO_SECRET_KEY }}"
+    DJANGO_DB_NAME: "{{ DJANGO_DB_NAME }}"
+    DJANGO_DB_USER: "{{ DJANGO_DB_USER }}"
+    DJANGO_DB_PASSWORD: "{{ DJANGO_DB_PASSWORD }}"
+    DJANGO_DB_HOST: "{{ DJANGO_DB_HOST }}"
+    DJANGO_DB_PORT: "{{ DJANGO_DB_PORT }}"
+    DJANGO_SITE_NAME: "{{ DJANGO_SITE_NAME }}"
+    DJANGO_EMAIL_BACKEND: "{{ DJANGO_EMAIL_BACKEND }}"
+    DJANGO_ADMIN_EMAIL: "{{ DJANGO_ADMIN_EMAIL }}"
+    DJANGO_PROJECT_DIR: "{{ DJANGO_PROJECT_DIR }}"
