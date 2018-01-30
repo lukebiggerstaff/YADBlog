@@ -14,16 +14,19 @@ Environment = {
     "DJANGO_SITE_NAME": os.environ.get("DJANGO_SITE_NAME"),
     "DJANGO_EMAIL_BACKEND": os.environ.get("DJANGO_EMAIL_BACKEND"),
     "DJANGO_ADMIN_EMAIL": os.environ.get("DJANGO_ADMIN_EMAIL"),
+    "DJANGO_EMAIL_HOST": os.environ.get("DJANGO_ADMIN_EMAIL"),
+    "DJANGO_EMAIL_HOST_USER": os.environ.get("DJANGO_ADMIN_EMAIL"),
+    "DJANGO_EMAIL_HOST_PASSWORD": os.environ.get("DJANGO_ADMIN_EMAIL"),
 }
-for env in Environment.keys():
-    print('env : {}, {}'.format(env, Environment[env]))
 
 DEBUG = Environment["DJANGO_DEBUG"]
-SECRET_KEY = Environment['DJANGO_SECRET_KEY']
-print('secret key : {}'.format(SECRET_KEY))
 ALLOWED_HOSTS = [Environment['DJANGO_SITE_NAME']]
 ADMIN_EMAIL_ADDRESS = Environment["DJANGO_ADMIN_EMAIL"]
-EMAIL_BACKEND = Environment["DJANGO_EMAIL_BACKEND"]
+EMAIL_HOST = Environment[ "DJANGO_EMAIL_HOST" ]
+EMAIL_HOST_USER = Environment[ "DJANGO_EMAIL_HOST_USER" ]
+EMAIL_HOST_PASSWORD = Environment[ "DJANGO_EMAIL_HOST_PASSWORD" ]
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
