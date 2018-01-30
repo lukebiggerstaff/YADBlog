@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn server for {{ DJANGO_SITE_NAME }}
+
+[Service]
+Restart=on-failure
+User=robot
+WorkingDirectory={{ DJANGO_PROJECT_DIR }}/yadblog
+EnvironmentFile={{ DJANGO_PROJECT_DIR }}/.env
+ExecStart={{ DJANGO_PROJECT_DIR }}/venv/bin/gunicorn -w 3 \
+  yadblog.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

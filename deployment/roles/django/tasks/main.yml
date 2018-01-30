@@ -1,2 +1,63 @@
 ---
-# tasks file for django
+- name: Install packages for django with apt
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    cache_valid_time: 3600
+    state: present
+  with_items:
+    - python3.5
+    - python3-pip
+    - python3-venv
+    - git
+
+- name: Create django directory
+  become_user: robot
+  file:
+    path: "{{ DJANGO_PROJECT_DIR }}"
+    state: directory
+    owner: robot
+    group: robot
+    recurse: yes
+
+- name: Git clone or pull django repo
+  become_user: robot
+  git:
+    repo: https://github.com/lukebiggerstaff/yadblog.git
+    dest: "{{ DJANGO_PROJECT_DIR }}"
+
+- name: Create virtualenv and install packages
+  become_user: robot
+  pip:
+    virtualenv: "{{ DJANGO_PROJECT_DIR }}/venv"
+    virtualenv_command: /usr/bin/python3.5 -m venv
+    requirements: "{{ DJANGO_PROJECT_DIR }}/yadblog/requirements.txt"
+
+- name: Run django manage.py commands
+  become_user: robot
+  django_manage:
+    app_path: "{{ DJANGO_PROJECT_DIR }}/yadblog"
+    virtualenv: "{{ DJANGO_PROJECT_DIR }}/venv"
+    command: "{{ item }}"
+  with_items:
+    - "migrate"
+    - "collectstatic"
+
+- name: Create gunicorn systemd service file
+  template:
+    src: ../templates/gunicorn.service.j2
+    dest: /etc/systemd/system/gunicorn-{{ DJANGO_SITE_NAME }}.service
+
+- name: Create EnvironmentFile for gunicorn systemd service
+  template:
+    src: ../templates/EnvironmentFile.j2
+    dest: "{{ DJANGO_PROJECT_DIR }}/.env"
+    owner: robot
+    group: robot
+    mode: 0600
+
+- name: Start and enable gunicorn
+  service:
+    name: gunicorn-{{ DJANGO_SITE_NAME }}.service
+    state: started
+    enabled: yes
