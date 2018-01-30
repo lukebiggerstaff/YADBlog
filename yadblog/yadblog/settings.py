@@ -4,7 +4,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 Environment = {
-    "DJANGO_DEBUG" : bool(os.environ.get("DJANGO_DEBUG")),
+    "DJANGO_DEBUG" : bool(int(os.environ.get("DJANGO_DEBUG"))),
     "DJANGO_SECRET_KEY": os.environ.get("DJANGO_SECRET_KEY"),
     "DJANGO_DB_NAME": os.environ.get("DJANGO_DB_NAME"),
     "DJANGO_DB_USER": os.environ.get("DJANGO_DB_USER"),
@@ -12,7 +12,6 @@ Environment = {
     "DJANGO_DB_HOST": os.environ.get("DJANGO_DB_HOST"),
     "DJANGO_DB_PORT": os.environ.get("DJANGO_DB_PORT"),
     "DJANGO_SITE_NAME": os.environ.get("DJANGO_SITE_NAME"),
-    "DJANGO_SITE_HOST": os.environ.get("DJANGO_SITE_HOST"),
     "DJANGO_EMAIL_BACKEND": os.environ.get("DJANGO_EMAIL_BACKEND"),
     "DJANGO_ADMIN_EMAIL": os.environ.get("DJANGO_ADMIN_EMAIL"),
 }
