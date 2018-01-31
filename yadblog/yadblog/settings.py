@@ -14,9 +14,9 @@ Environment = {
     "DJANGO_SITE_NAME": os.environ.get("DJANGO_SITE_NAME"),
     "DJANGO_EMAIL_BACKEND": os.environ.get("DJANGO_EMAIL_BACKEND"),
     "DJANGO_ADMIN_EMAIL": os.environ.get("DJANGO_ADMIN_EMAIL"),
-    "DJANGO_EMAIL_HOST": os.environ.get("DJANGO_ADMIN_EMAIL"),
-    "DJANGO_EMAIL_HOST_USER": os.environ.get("DJANGO_ADMIN_EMAIL"),
-    "DJANGO_EMAIL_HOST_PASSWORD": os.environ.get("DJANGO_ADMIN_EMAIL"),
+    "DJANGO_EMAIL_HOST": os.environ.get("DJANGO_EMAIL_HOST"),
+    "DJANGO_EMAIL_HOST_USER": os.environ.get("DJANGO_EMAIL_HOST_USER"),
+    "DJANGO_EMAIL_HOST_PASSWORD": os.environ.get("DJANGO_EMAIL_HOST_PASSWORD"),
 }
 
 DEBUG = Environment["DJANGO_DEBUG"]
