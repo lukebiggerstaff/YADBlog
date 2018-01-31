@@ -121,3 +121,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Media URL and root
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Configure streaming logging
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console' : {
+            'class' : 'logging.StreamHandler',
+        },
+    },
+    'loggers' : {
+        'django' : {
+            'handlers' : ['console'],
+            'level' : os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+    },
+}
