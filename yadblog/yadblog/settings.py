@@ -20,6 +20,7 @@ Environment = {
 }
 
 DEBUG = Environment["DJANGO_DEBUG"]
+SECRET_KEY = Environment["DJANGO_SECRET_KEY"]
 ALLOWED_HOSTS = [Environment['DJANGO_SITE_NAME']]
 ADMIN_EMAIL_ADDRESS = Environment["DJANGO_ADMIN_EMAIL"]
 EMAIL_HOST = Environment[ "DJANGO_EMAIL_HOST" ]
