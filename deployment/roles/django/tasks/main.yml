@@ -25,6 +25,7 @@
   git:
     repo: https://github.com/lukebiggerstaff/yadblog.git
     dest: "{{ DJANGO_PROJECT_DIR }}"
+    force: yes
 
 - name: Create virtualenv and install packages
   become_user: robot
