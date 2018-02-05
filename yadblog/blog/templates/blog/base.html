@@ -16,10 +16,10 @@
   <body>
 
     {% include "./nav.html" %}
-
-    {% block body %}
-    {% endblock body %}
-
+    <div class="content">
+      {% block body %}
+      {% endblock body %}
+    </div>
     {% include "./footer.html" %}
 
     <script src=" {% static 'js/main.js' %}"></script>

@@ -13,7 +13,7 @@
     <div class="col-md-10 col-lg-8 m-auto">
       <h1 class="heading main-heading">Luke Biggerstaff</h1>
       <i class="fa fa-quote-left quote"></i>
-      <cite class="text-muted">Welcome to my software blog! Topics will range all things Python, Web and DevOps. Menu is in the upper right hand corner.</cite>
+      <cite class="text-muted">Welcome to my software blog. Topics range all things Python, Web and DevOps. Menu is in the upper right hand corner.</cite>
       <i class="fa fa-quote-right quote"></i>
       {% for post in posts %}
 
@@ -28,10 +28,10 @@
         <div class="card-body">
           <div class="container">
             <div class="row">
-              <div class="col-sm-3">
+              <div class="col-sm-5">
                 <img src="{{ post.postthumbnailimage.image.url }}" class="img-fluid img-thumbnail">
               </div>
-              <div class="col-sm-9">
+              <div class="col-sm-7">
                 <p class="body-paragraph">{{ post.description }}</p>
                 <div class="d-flex">
                   <a href="{% url 'post-detail' post.slug %}" class="small">Read Post <i class="fa fa-arrow-circle-right"></i></a> 
